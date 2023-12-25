@@ -4,6 +4,7 @@ struct node {
     int data;
     struct node *next;
 };
+// for front insertion 
 struct node *insertfront(struct node *head, int data){
     struct node *newnode;
     newnode = (struct node *)malloc(sizeof(struct node));
@@ -16,6 +17,7 @@ struct node *insertfront(struct node *head, int data){
     head=newnode;
     return head;
 }
+// for end insertion 
 void insertend(struct node *head, int data){
     struct node *newnode,*temp=head;
     newnode = (struct node *)malloc(sizeof(struct node));
@@ -26,6 +28,7 @@ void insertend(struct node *head, int data){
      }
      temp->next=newnode;
 }
+// for any position insertion
 void insertpos(struct node *head, int data, int pos){
     int i=1;
     struct node *temp=head,*newnode;
@@ -37,6 +40,7 @@ void insertpos(struct node *head, int data, int pos){
     newnode->next=temp->next;
     temp->next=newnode;
 }
+// node deleting from front 
 struct node *deletefront(struct node *head){
     struct node *temp=head;
      
@@ -45,6 +49,7 @@ struct node *deletefront(struct node *head){
     free(temp);
     return head;
 }
+// node deleting from end  
 void deleteend(struct node *head){
     struct node *temp=head;
     while(temp->next->next!=NULL){
@@ -52,6 +57,7 @@ void deleteend(struct node *head){
     }
     temp->next=NULL;
 }
+ // node deleting from a position 
 void deletepos(struct node *head, int pos){
     struct node *temp=head,*p=head->next;
     for(int i=1;i<pos-1;i++){
@@ -61,6 +67,7 @@ void deletepos(struct node *head, int pos){
     temp->next=p->next;
     free(p);
 }
+// to reverse linked list
 struct node *reverse(struct node *head){
     struct node *pre=NULL,*present;
     struct node *after;
@@ -73,6 +80,7 @@ struct node *reverse(struct node *head){
     }
     return pre;
 }
+// to search node value at any position 
 void print(struct node *head, int pos){
     struct node *temp=head;
     for(int i=1;i<pos;i++){
@@ -80,6 +88,7 @@ void print(struct node *head, int pos){
     }
     printf("\nyour searched position node data is %d\n",temp->data);
 }
+// to display output 
 void display(struct node *head){
     struct node *temp=head;
     if(head==NULL){
@@ -92,7 +101,7 @@ void display(struct node *head){
     }
     
 }
-
+// main function for starting 
 int main(){
     struct node *head=NULL;
     
